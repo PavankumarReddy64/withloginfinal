@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashly | Payment</title>
+    <link href="./public/img/logo.png" rel="icon">
+
+    <script src="https://use.fontawesome.com/3a1649ff06.js"></script>
+    <link rel="stylesheet" href="./css/style-checkout.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Dosis:300,400,500,,600,700,700i|Lato:300,300i,400,400i,700,700i"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="./index.html" class="logo"><img src="./img/logo.png" alt="" class="img-fluid"></a>
+        </div>
+    </header>
+
+    <div class="payment-container">
+        <h2>Payment</h2>
+        <h4>Select Payment Option</h4>
+        <input type="radio" name="pay" id="payment1" value="payment1">
+        <label for="payment1"><span>PayPal <i class="fa fa-paypal fa-lg"></i></span></label>
+        <input type="radio" name="pay" id="payment2" value="payment2">
+        <label for="payment3"><span>Cash on Delivery <i class="fa fa-money fa-lg"></i></span></label>
+
+        <div id="card" class="paypal" hidden>
+            <br>
+            <div id="paypal-button-container"></div>
+        </div>
+        <div id="cod" hidden>
+           <a href="./success.html"><button type="submit" id="pay3">Place Order</button></a>
+        </div>
+    </div>
+
+    
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=Aa7v1WGgWpWGkI-WGeiCqvxRjSPfDUhnroefIrGxx_PncCZwKopwacOw_XKiLfyy3u1p8Rc8JObSTVb3"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function (data, actions) {
+                return actions.order.create({
+
+                    purchase_units: [{
+                        amount: {
+                            value: localStorage.getItem("total_cart_final"),
+                            currency_code: "USD"
+                        }
+                    }]
+                });
+            },
+
+            onApprove: function (data, actions) {
+                return actions.order.capture().then(function (details) {
+                    console.log(details);
+                    orderID = details.id;
+                    status = details.status;
+                    window.location.replace("success.html")
+                    localStorage.clear();
+                });
+            },
+
+            onCancel: function (data) {
+                alert("Payment cancelled");
+            },
+
+            onError: function (err) {
+                alert("Something wrong with the information given");
+            }
+        }).render("#paypal-button-container");
+    </script>
+
+</body>
+<script src="./js/hide.js"></script>
+
+</html>

@@ -1,0 +1,150 @@
+.grid-container-element { 
+    display: grid; 
+    justify-content: center;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 50px; 
+    width: 100%; 
+} 
+
+.summary{
+    margin-left: 25px;
+    margin-right: 55px;
+}
+
+.payment-class{
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.payment-container{
+    padding: 10px 20px 20px 20px;
+    width: 350px;
+    border-radius: 20px;
+    background-color: #dfc759;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+
+button{
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    border-radius: 15px;
+    margin-top: 8px;
+    padding: 10px 10px;
+}
+
+.address input, select{
+    border:solid black;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-left: 0;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 22px;
+    width: 250px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    margin-top: 4px;
+    padding-right: 30px;
+}
+
+.address:focus{
+    background-color: black;
+    color: #f2f2f2;
+}
+
+.address:focus i{
+    color: white;
+}
+
+.address button{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.address i{
+    position: absolute;
+    padding-top: 18px;
+    padding-left: 30px;
+    margin-inline: -60px;
+    color: black;
+}
+
+.address input:focus + .fa{
+    color: #dfc759;
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.shipping{
+    padding-left: 20px;
+}
+
+.shipping h4{
+    margin-bottom: 3px;
+}
+
+.address:focus::placeholder{
+    color: #f2f2f2;
+}
+
+.payment input[type='radio']:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.payment input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: black;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.components{
+    border-bottom: solid black;
+    padding-bottom: 7px;
+}
+
+.summary h4{
+    padding-top: 7px;
+}
+
+.wrapper{
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+.btn i{
+    font-size: 25px;
+}
+
+.payment-button{
+    padding-bottom: 20px;
+    text-align: center;
+}
